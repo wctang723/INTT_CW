@@ -53,9 +53,8 @@ struct ladder_info {
     int Direction; // note : 0 : south, 1 : north 
 };
 
-double get_radius(double x, double y)
-{
-    return sqrt(pow(x,2)+pow(y,2));
+double get_radius(double x, double y) {
+	return sqrt(pow(x,2)+pow(y,2));
 }
 
 double get_radius_sign(double x, double y)
@@ -398,9 +397,10 @@ void check_cosmic_fit(/*pair<double,double>beam_origin*/)
     TCanvas * c1 = new TCanvas("","",1000,800);
     c1 -> cd();
     
-    string mother_folder_directory = "/sphenix/user/ChengWei/INTT/INTT_commissioning/cosmic/25952";
+    string mother_folder_directory = "/sphenix/u/wctang/workspace/cosmic_seed_file/26288";
     // string file_name = "beam_inttall-00020869-0000_event_base_ana_cluster_ideal_excludeR1500_100kEvent";
-    string file_name = "cosmics_inttall-00025952-0000_event_base_ana_cluster_survey_1_XYAlpha_Peek_3.32mm_excludeR500_1000kEvent_0HotCut";
+
+    string file_name = "cosmics_inttall-00026288-0000_event_base_ana_cluster_ideal_excludeR500_200kEvent_10HotCut";		//don't add ".root" in the file name
     gErrorIgnoreLevel = kWarning;
 
     // string mother_folder_directory = "/home/phnxrc/INTT/cwshih/DACscan_data/2023_08_01/24767";
@@ -433,7 +433,7 @@ void check_cosmic_fit(/*pair<double,double>beam_origin*/)
     bool print_event_display = true; // todo : print the plots here
     
     //todo : change the mode for drawing
-    int geo_mode_id = 1;
+    int geo_mode_id = 0;
     string conversion_mode = (geo_mode_id == 0) ? "ideal" : "survey_1_XYAlpha_Peek";
     double peek = 3.32405;
 

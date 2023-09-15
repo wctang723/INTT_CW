@@ -61,7 +61,7 @@ void gen_INTT_cluster_BCO(string sub_folder_string, string file_name, int DAC_ru
     // string mother_folder_directory = "/home/phnxrc/INTT/cwshih/DACscan_data/zero_magnet_Takashi_used";
     // string file_name = "beam_inttall-00020869-0000_event_base_ana";
 
-    string mother_folder_directory = "/sphenix/user/ChengWei/INTT/INTT_commissioning/" + sub_folder_string;
+    string mother_folder_directory = "/sphenix/u/wctang/workspace/cosmic_seed_file/" + sub_folder_string;
     // int DAC_run_ID = 0;
     // int Nhit_cut = 1500;
     // int run_Nevent = 36000;
@@ -88,7 +88,7 @@ void gen_INTT_cluster_BCO(string sub_folder_string, string file_name, int DAC_ru
     
 
     vector<int> adc_convert(8,0);
-    for (int i=0; i<8; i++) {adc_convert[i] = (adc_setting_run[DAC_run_ID][i]+adc_setting_run[DAC_run_ID][i+1])/2.;} // todo : change the run setting here
+    for (int i=0; i<8; i++) {adc_convert[i] = (adc_setting_run[DAC_run_ID][i] + adc_setting_run[DAC_run_ID][i+1])/2.;} // todo : change the run setting here
 
     vector<vector<hit_info>> single_event_hit_ladder_vec(N_total_ladder); // note : [ladder]
     vector<vector<vector<hit_info>>> single_event_hit_vec(N_server, single_event_hit_ladder_vec); // note : [server][ladder] 
@@ -206,7 +206,7 @@ void gen_INTT_cluster_BCO(string sub_folder_string, string file_name, int DAC_ru
         N_hits = fNhits;
         bco_full_out = bco_full[0];
 
-        bool check_bco_tag = (bco_full_out == 881787581811) ? true : false;
+        bool check_bco_tag = (bco_full_out == 881787581811) ? true : false;		// this might need to change due to Felix firmware update by Raul
 
         // todo : the fNhits cut is here 
         if ( fNhits > Nhit_cut ) {

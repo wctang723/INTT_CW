@@ -37,8 +37,8 @@ to_ch_str convertToIndices(int input) {
 void hot_chan_finder()
 {   
     
-    string folder_directory = "/sphenix/user/ChengWei/INTT/INTT_commissioning/cosmic/25952";
-    string file_name = "cosmics_inttall-00025952-0000_event_base_ana";
+    string folder_directory = "/sphenix/u/wctang/workspace/cosmic_seed_file/26288";
+    string file_name = "cosmics_inttall-00026288-0000_event_base_ana";	// don't add ".root" in file name
     string output_directory = folder_directory + "/PreCheck_" + file_name;
     double standard_ch_ratio_typeA = 1. / (8*14*16*128); // note : typeA, 16 sensor cells
     double standard_ch_ratio_typeB = 1. / (8*14*10*128); // note : typeB, 10 sensor cells
@@ -128,7 +128,7 @@ void hot_chan_finder()
     nHotCh_hist -> GetYaxis() -> SetTitle("Entry");
 
 
-    for (int i = 0; i < N_event; i++)
+    for (int i = 0; i < 100000/*N_event*/; i++) 	// How many event I want to run for the hot channel finding (statistc issue for hot channel)
     {
         tree -> GetEntry(i);
         if (i % 1000 == 0) cout<<"running : "<<i<<endl;
